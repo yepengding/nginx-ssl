@@ -21,13 +21,16 @@ https://github.com/yepengding/nginx-ssl.git
 chmod +x setup.sh
 ```
 
-5. Run `setup.sh`
+5. (Optional) Copy your homepage files into folder `nginx/hp`
+
+
+6. Run `setup.sh`
 
 ```shell
 ./setup.sh
 ```
 
-# Customize Configuration
+# Customize Nginx Configuration
 
 1. Edit `nginx/conf/app.conf`
 
