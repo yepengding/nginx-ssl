@@ -35,7 +35,8 @@ echo "server {
     ssl_certificate_key /etc/nginx/ssl/live/$domain/privkey.pem;
     
     location / {
-    	# ...
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
     }
 }" >> nginx/conf/app.conf
 
