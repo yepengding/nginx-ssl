@@ -26,3 +26,21 @@ chmod +x setup.sh
 ```shell
 ./setup.sh
 ```
+
+# Customize Configuration
+
+1. Edit `nginx/conf/app.conf`
+
+2. Reload Nginx configuration
+
+```shell
+docker compose exec nginx nginx -s reload
+```
+
+# Renew Certificate
+
+Run command
+
+```shell
+docker compose run --rm certbot renew
+```
