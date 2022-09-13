@@ -46,4 +46,5 @@ Run command
 
 ```shell
 docker compose run --rm certbot renew
+docker compose restart
 ```
