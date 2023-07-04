@@ -2,9 +2,11 @@
 
 Automatically set up SSL in Nginx with Docker.
 
-# Setup
+# Quickstart
 
-1. Install [docker compose](https://docs.docker.com/compose/install/#install-compose)
+> This will create a new Nginx instance hosting a website protected by SSL.
+
+1. Install [docker compose](https://docs.docker.com/compose/)
 2. Clone the repository
 
 ```shell
@@ -40,11 +42,52 @@ chmod +x setup.sh
 docker compose exec nginx nginx -s reload
 ```
 
-# Renew Certificate
+# Generate Certificate
 
-Run command
+1. Assign permissions to `generate.sh`
 
 ```shell
-docker compose run --rm certbot renew
+chmod +x generate.sh
+```
+
+2. Run `generate.sh`
+
+```shell
+./generate.sh [domain]
+```
+
+# Renew Certificate
+
+## Renew all certificates
+
+1. Assign permissions to `renew.sh`
+
+```shell
+chmod +x renew.sh
+```
+
+2. Run `renew.sh`
+
+```shell
+./renew.sh
+```
+
+3. Restart to apply changes to the Nginx instance
+
+```shell
+docker compose restart
+```
+
+## Renew the certificate for a specific domain
+
+1. Run command
+
+```shell
+docker compose run --rm certbot certonly --force-renew -d [domain]
+```
+
+2. Restart to apply changes to the Nginx instance
+
+```shell
 docker compose restart
 ```
